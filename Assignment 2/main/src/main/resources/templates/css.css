@@ -1,0 +1,26 @@
+a:hover {
+    text-decoration: none;
+    color: crimson;
+}
+body {
+    background: aliceblue;
+    min-width: 770px;
+    font-family: 'Varela Round', sans-serif;
+}
+thead > tr, tfoot > tr {
+    background: #007BFF;
+    color: white;
+}
+table {
+    margin: 0px;
+    padding: 0px;
+    border-collapse: collapse;
+    border-radius: 7px;
+    overflow: hidden;
+}
+#blank {
+    height: 35px;
+}
+.pull-right {
+    float: right;
+}

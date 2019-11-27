@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>2014758085 이승찬</title>
+    <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="css/index.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <style>
+        a:hover {
+            text-decoration: none;
+            color: crimson;
+        }
+        body {
+            background: aliceblue;
+            min-width: 770px;
+            font-family: 'Varela Round', sans-serif;
+        }
+        table {
+            margin: 0px;
+            padding: 0px;
+            border-collapse: collapse;
+            border-radius: 7px;
+            overflow: hidden;
+        }
+        #blank {
+            height: 35px;
+        }
+        .pull-right {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+
+<div id="blank"></div>
+<div class="container">
+    <td>
+        <div class="pull-right" style="width:100px;margin:10px 0;">
+            <a id="home" href="#" th:href="@{/}" class="btn btn-primary btn-block">홈으로</a>
+        </div>
+        <div class="pull-right" style="width:100px;margin:10px 0;">
+            <a id="delete" href="#" th:href="@{delete/{idx}(idx=${profile.idx})}" class="btn btn-primary btn-block" onclick="return confirmmsg()">삭제</a>
+        </div>
+    </td>
+    <div class="page-header">
+        <h1>Profile 행 데이터</h1>
+    </div>
+
+    <table class="table">
+        <thead>
+
+        </thead>
+        <tbody>
+        <tr>
+            <th style="padding:13px 0 0 15px;">SNS</th>
+            <td th:text="${profile.network}"></td>
+        </tr>
+        <tr>
+            <th style="padding:13px 0 0 15px;">ID</th>
+            <td th:text="${profile.userName}"></td>
+        </tr>
+        <tr>
+            <th style="padding:13px 0 0 15px;">링크</th>
+            <td th:text="${profile.url}"></td>
+        </tr>
+        <tr>
+            <th style="padding:13px 0 0 15px;">등록시간</th>
+            <td th:text="${profile.createdAt} ? ${#temporals.format(profile.createdAt,'yyyy-MM-dd HH:mm:ss')} : ${profile.createdAt}"></td>
+        </tr>
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+    <td>
+        <div class="pull-right" style="width:100px;margin:10px 0;">
+            <a href="#" th:href="@{edit/{idx}(idx=${profile.idx})}" class="btn btn-primary btn-block">수정</a>
+        </div>
+    </td>
+</div>
+
+
+<!-- 삭제 확인 MSG -->
+<script>
+    function confirmmsg() {
+        var del = window.confirm("삭제 하시겠습니까?");
+
+        if(del == true) return true;
+        else return false;
+    }
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
